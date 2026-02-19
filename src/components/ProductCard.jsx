@@ -1,10 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 const ProductCard = ({ product }) => {
+    const navigate = useNavigate()
     console.log('These are the product from product card component: ', product);
     
   return (
-    <div className='w-full h-[600px] rounded-[30px] shadow-lg bg-purple-400 relative overflow-hidden'>
+    <div onClick={() => navigate(`/product-details/${product.id}`)} className='w-full h-[600px] rounded-[30px] shadow-lg bg-purple-400 relative overflow-hidden'>
         {/* for thumbnail image */}
         <div className='h-1/2 w-full object-contain '>
             <img className='w-full h-full object-contain' src={product.thumbnail} alt={product.title} />

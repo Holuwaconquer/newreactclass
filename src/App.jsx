@@ -1,22 +1,22 @@
 import React from 'react'
 import ProductPage from './components/ProductPage'
+import Navbar from './components/Navbar'
+import { Route, Routes } from 'react-router'
+import ProductDetails from './Pages/ProductDetails'
 
 const App = () => {
   return (
     <div className='w-full flex flex-col gap-4 p-4'>
-      <div className='w-full flex justify-between items-center text-3xl'>
-        <h1>Product</h1>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<ProductPage />} />
+        <Route path='/product-details/:id' element={<ProductDetails />} />
+      </Routes>
+      
 
-        <div>
-          <ul className='flex items-center gap-3'>
-            <li>All Product</li>
-            <li>New Arrival</li>
-            <li>Flash Sales</li>
-          </ul>
-        </div>
-      </div>
 
-      <ProductPage />
+      {/* /about - About component
+      /product - product component */}
     </div>
   )
 }
